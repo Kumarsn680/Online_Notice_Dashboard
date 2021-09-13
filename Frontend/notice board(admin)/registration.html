@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        * {
+
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* padding: 10px; */
+            background: linear-gradient(45deg, #3aa5a9 11.2%, #b9e4e1 70.2%);
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background-color: #DEF2F1;
+            padding: 25px 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .container .title {
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .container .title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 30px;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #3aa5a9 11.2%, #b9e4e1 70.2%);
+        }
+
+        .content form .user-details {
+            display: flex;
+            flex-wrap: wrap;
+            background: #DEF2F1;
+            justify-content: space-between;
+            margin: 20px 0 12px 0;
+        }
+
+        form .user-details .input-box {
+            margin-bottom: 15px;
+
+            width: calc(100% / 2 - 20px);
+        }
+
+        form .input-box span.details {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .user-details .input-box input {
+            height: 45px;
+            width: 100%;
+            outline: none;
+            font-size: 16px;
+            border-radius: 5px;
+            padding-left: 15px;
+            border: 1px solid #ccc;
+            border-bottom-width: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .user-details .input-box input:focus,
+        .user-details .input-box input:valid {
+            border-color: #9b59b6;
+        }
+
+        form .gender-details .gender-title {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        form .category {
+            display: flex;
+            width: 80%;
+            margin: 14px 0;
+            justify-content: space-between;
+        }
+
+        form .category label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        form .category label .dot {
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            margin-right: 10px;
+            background: #d9d9d9;
+            border: 5px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        #dot-1:checked~.category label .one,
+        #dot-2:checked~.category label .two,
+        #dot-3:checked~.category label .three {
+            background: #9b59b6;
+            border-color: #d9d9d9;
+        }
+
+        form input[type="radio"] {
+            display: none;
+        }
+
+        form .button {
+            height: 45px;
+            margin: 35px 0
+        }
+
+        form .button input {
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-image: linear-gradient(45deg, #3aa5a9 11.2%, #b9e4e1 70.2%);
+        }
+
+        form .button input:hover {
+            /* transform: scale(0.99); */
+            background-image: linear-gradient(109.6deg, rgba(255, 161, 59, 1) 11.2%, rgba(255, 255, 255, 1) 100.2%);
+        }
+
+        @media(max-width: 584px) {
+            .container {
+                max-width: 100%;
+            }
+
+            form .user-details .input-box {
+                margin-bottom: 15px;
+                width: 100%;
+            }
+
+            form .category {
+                width: 100%;
+            }
+
+            .content form .user-details {
+                max-height: 300px;
+                overflow-y: scroll;
+            }
+
+            .user-details::-webkit-scrollbar {
+                width: 5px;
+            }
+        }
+
+        @media(max-width: 459px) {
+            .container .content .category {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar Starts here -->
+
+        <div class="bg-white" id="sidebar-wrapper">
+
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
+                <a class="navbar-brand" id="logo" href="index.html">
+                    <img src="primathink.png" height="100" width="180">
+                </a>
+            </div>
+
+
+            <div class="list-group list-group-flush my-3">
+                <a class="list-group-item list-group-item-action  " href="notice(admin).html">
+                    <i class="fas fa-tachometer-alt me-2"></i>Noticeboard
+                </a>
+                <a class="list-group-item list-group-item-action " href="registration.htm">
+                    <i class="fas fa-project-diagram me-2"></i>Add Student(register)
+                </a>
+                <a class="list-group-item list-group-item-action " href="dashboard(admin).html">
+                    <i class="fas fa-chart-line me-2"></i>Progress
+                </a>
+                <a class="list-group-item list-group-item-action " href="student(admin).html">
+                    <i class="fas fa-paperclip me-2"></i>Student
+                </a>
+                <a class="list-group-item list-group-item-action " href="#">
+                    <i class="fas fa-shopping-cart me-2"></i>Progress
+                </a>
+                <a class="list-group-item list-group-item-action" href="#">
+                    <i class="fas fa-comment-dots me-2"></i>Progress
+                </a>
+                <a class="list-group-item list-group-item-action " href="#">
+                    <i class="fas fa-map-marker-alt me-2"></i>Progress
+                </a>
+
+            </div>
+        </div>
+
+
+
+        <!-- Sidebar ends here -->
+
+
+
+
+        <!--Navbar Starts Here  -->
+        <div class="page-content-wrapper "
+            style="width:100vw;  background: linear-gradient(45deg, #3aa5a9 11.2%, #b9e4e1 70.2%); ">
+            <nav class="navbar navbar-expand-xl bg-transparent d-flex">
+                <div class="d-flex " id="navelements" style="flex-grow:1;">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0 navbar-brand ">Dashboard</h2>
+                </div>
+                <div class="dropdown show" ">
+                    <a class=" btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Dropdown link
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="personal_details(admin).html">Profile</a>
+                        <a class="dropdown-item" href="login.htm">Log out</a>
+                    </div>
+                </div>
+
+            </nav>
+
+            <div class="container"><br>
+                <div class="title">Registration</div>
+                <div class="content">
+                    <form action="#">
+                        <div class="user-details">
+                            <div class="input-box">
+                                <span class="details">Full Name</span>
+                                <input type="text" placeholder="Enter your name" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Username</span>
+                                <input type="text" placeholder="Enter your username" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Date of Birth</span>
+                                <input type="Date" placeholder="Enter Date Of Birth" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Class Roll Number</span>
+                                <input type="text" placeholder="Enter Class Roll Number" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Email</span>
+                                <input type="text" placeholder="Enter your email" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Phone Number</span>
+                                <input type="text" placeholder="Enter your number" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Password</span>
+                                <input type="text" placeholder="Enter your password" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Confirm Password</span>
+                                <input type="text" placeholder="Confirm your password" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Department</span>
+                                <input type="text" placeholder="Enter Department" required>
+                            </div>
+                            <div class="input-box">
+                                <span class="details">Year of Study</span>
+                                <input type="text" placeholder="Enter Year of Study" required>
+                            </div>
+                        </div>
+                        <div class="gender-details">
+                            <input type="radio" name="gender" id="dot-1">
+                            <input type="radio" name="gender" id="dot-2">
+                            <input type="radio" name="gender" id="dot-3">
+                            <span class="gender-title">Gender</span>
+                            <div class="category">
+                                <label for="dot-1">
+                                    <span class="dot one"></span>
+                                    <span class="gender">Male</span>
+                                </label>
+                                <label for="dot-2">
+                                    <span class="dot two"></span>
+                                    <span class="gender">Female</span>
+                                </label>
+                                <label for="dot-3">
+                                    <span class="dot three"></span>
+                                    <span class="gender">Prefer not to say</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <input type="submit" value="Add Student">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- Navbar Ends Here -->
+
+
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var sidebar = document.getElementById("wrapper")
+        var toggle = document.getElementById("menu-toggle")
+
+        toggle.onclick = function () {
+            sidebar.classList.toggle("toggled")
+        }
+    </script>
+</body>
+
+</html>
